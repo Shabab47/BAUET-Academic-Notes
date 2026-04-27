@@ -1,0 +1,13 @@
+Experiment No.:
+Experiment Name:
+Introduction:
+	->What is the main topic of today's lab (i.e., sorting)
+	->explain the topic (fundamental concepts of the topic)
+
+Theory:
+	->The explanation of all sub-topics(i.e. radix sort, merge sort, quick sort)
+	->Their algorithms
+	->their main source code
+	->their output
+
+Discussion & conclusion:

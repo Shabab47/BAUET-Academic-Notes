@@ -1,0 +1,159 @@
+-- Create Employees table
+CREATE TABLE Employees (
+    emp_id INT,
+    emp_name VARCHAR(50),
+    department VARCHAR(50),
+    salary DECIMAL(10,2)
+);
+
+-- Create Projects table
+CREATE TABLE Projects (
+    proj_id INT,
+    proj_name VARCHAR(100),
+    budget DECIMAL(10,2)
+);
+
+-- Create Employee_Projects table
+CREATE TABLE Employee_Projects (
+    emp_id INT,
+    proj_id INT,
+    hours_worked INT
+);
+
+-- Insert sample data into Employees
+INSERT INTO Employees VALUES
+(1, 'Rahim', 'IT', 50000),
+(2, 'Karim', 'HR', 40000),
+(3, 'Selim', 'IT', 55000),
+(4, 'Asha', 'Finance', 60000),
+(5, 'Rani', 'HR', 42000),
+(6, 'Hasan', 'Finance', 58000),
+(7, 'Nila', 'IT', 52000);
+
+-- Insert sample data into Projects
+INSERT INTO Projects VALUES
+(101, 'ERP System', 300000),
+(102, 'Website Development', 150000),
+(103, 'Payroll System', 100000),
+(104, 'Inventory Management', 200000);
+
+-- Insert sample data into Employee_Projects
+INSERT INTO Employee_Projects VALUES
+(1, 101, 120),
+(1, 102, 80),
+(2, 103, 90),
+(3, 101, 100),
+(4, 102, 150),
+(5, 103, 70),
+(6, 104, 110),
+(7, 101, 95),
+(3, 104, 60),
+(5, 102, 85),
+(2, 104, 100);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Create Customers table
+CREATE TABLE Customers (
+    customer_id VARCHAR(10),
+    name VARCHAR(50),
+    city VARCHAR(50)
+);
+
+-- Create Orders table
+CREATE TABLE Orders (
+    order_id INT,
+    customer_id VARCHAR(10),
+    order_amount DECIMAL(10,2),
+    order_date DATE
+);
+
+-- Create Products table
+CREATE TABLE Products (
+    product_id INT,
+    product_name VARCHAR(100),
+    price DECIMAL(10,2)
+);
+
+-- Create Order_Details table
+CREATE TABLE Order_Details (
+    order_detail_id INT,
+    order_id INT,
+    product_id INT,
+    quantity INT
+);
+
+-- Insert sample data into Customers
+INSERT INTO Customers VALUES
+('C001', 'Rahim', 'Dhaka'),
+('C002', 'Karim', 'Rajshahi'),
+('C003', 'Selim', 'Khulna'),
+('C004', 'Asha', 'Dhaka'),
+('C005', 'Rani', 'Chittagong'),
+('C006', 'Babul', 'Dhaka'),
+('C007', 'Hasan', 'Khulna'),
+('C008', 'Nila', 'Rajshahi');
+
+-- Insert sample data into Orders
+INSERT INTO Orders VALUES
+(1, 'C001', 1200, '2024-02-12'),
+(2, 'C002', 800, '2024-02-14'),
+(3, 'C001', 600, '2024-03-01'),
+(4, 'C003', 900, '2024-03-10'),
+(5, 'C004', 1500, '2024-03-15'),
+(6, 'C005', 700, '2024-03-20'),
+(7, 'C001', 1000, '2024-03-22'),
+(8, 'C006', 500, '2024-03-25'),
+(9, 'C007', 900, '2024-03-28'),
+(10, 'C008', 1000, '2024-04-01'),
+(11, 'C002', 700, '2024-04-05'),
+(12, 'C004', 1200, '2024-04-07'),
+(13, 'C003', 400, '2024-04-08'),
+(14, 'C006', 800, '2024-04-09'),
+(15, 'C005', 500, '2024-04-10');
+
+-- Insert sample data into Products
+INSERT INTO Products VALUES
+(201, 'Laptop', 60000),
+(202, 'Mouse', 800),
+(203, 'Keyboard', 1500),
+(204, 'Monitor', 12000),
+(205, 'USB Drive', 1000),
+(206, 'Headphone', 2500),
+(207, 'Printer', 15000),
+(208, 'Webcam', 3000);
+
+-- Insert sample data into Order_Details
+INSERT INTO Order_Details VALUES
+(1, 1, 201, 1),
+(2, 1, 202, 2),
+(3, 2, 203, 3),
+(4, 3, 205, 5),
+(5, 4, 204, 1),
+(6, 5, 201, 2),
+(7, 6, 202, 4),
+(8, 7, 205, 6),
+(9, 8, 203, 2),
+(10, 9, 206, 3),
+(11, 10, 202, 5),
+(12, 11, 204, 2),
+(13, 12, 207, 1),
+(14, 13, 205, 7),
+(15, 14, 208, 2),
+(16, 15, 202, 6);

@@ -1,0 +1,58 @@
+-- Create Customers table
+CREATE TABLE Customers (
+    CustomerID VARCHAR(10),
+    CustomerName VARCHAR(50),
+    City VARCHAR(50)
+);
+
+-- Insert all Customers in one statement
+INSERT INTO Customers (CustomerID, CustomerName, City)
+VALUES 
+('C001', 'Rahim', 'Dhaka'),
+('C002', 'Karim', 'Rajshahi'),
+('C003', 'Selim', 'Khulna');
+
+-- Create Orders table
+CREATE TABLE Orders (
+    OrderID INT,
+    CustomerID VARCHAR(10),
+    Amount INT
+);
+
+-- Insert all Orders in one statement
+INSERT INTO Orders (OrderID, CustomerID, Amount)
+VALUES
+(1, 'C001', 500),
+(2, 'C002', 700),
+(3, 'C001', 300),
+(4, 'C003', 400),
+(5, 'C002', 600);
+
+-- 1. GROUP BY: Each customer and their total purchase amount
+SELECT c.CustomerName, SUM(o.Amount) AS TotalPurchase
+FROM Customers c, Orders o
+WHERE c.CustomerID = o.CustomerID
+GROUP BY c.CustomerName;
+
+-- 2. HAVING: Customers whose total purchase amount > 800
+SELECT c.CustomerName, SUM(o.Amount) AS TotalPurchase
+FROM Customers c, Orders o
+WHERE c.CustomerID = o.CustomerID
+GROUP BY c.CustomerName
+HAVING SUM(o.Amount) > 800;
+
+-- 3. ORDER BY: Customers and total purchases sorted descending
+SELECT c.CustomerName, SUM(o.Amount) AS TotalPurchase
+FROM Customers c, Orders o
+WHERE c.CustomerID = o.CustomerID
+GROUP BY c.CustomerName
+ORDER BY TotalPurchase DESC;
+
+-- 4. Combined Example: Dhaka customers, total > 400, sorted descending
+SELECT c.CustomerName, c.City, SUM(o.Amount) AS TotalPurchase
+FROM Customers c, Orders o
+WHERE c.CustomerID = o.CustomerID
+  AND c.City = 'Dhaka'
+GROUP BY c.CustomerName, c.City
+HAVING SUM(o.Amount) > 400
+ORDER BY TotalPurchase DESC;
